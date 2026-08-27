@@ -11,6 +11,30 @@
 class Solution {
 public:
     ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) {
-        
+        // While taking any new List, Always prefer by using dummyHead/dummyNode
+        ListNode* dummyHead = new ListNode (-1) ;
+        ListNode* curr = dummyHead ;
+        ListNode* temp1 = l1 ;
+        ListNode* temp2 = l2 ;
+        int carry = 0 ;
+        while(temp1 != NULL || temp2 != NULL|| carry != 0){
+            int sum = carry ;
+
+            if(temp1) sum += temp1->val ;
+            if(temp2) sum += temp2->val ;
+   
+            // Store the current digit
+            ListNode* newNode = new ListNode(sum % 10) ; 
+
+            // Calculate carry for next digit
+            carry = sum/10 ;
+
+            curr->next = newNode ;
+            curr = curr->next ;
+
+            if(temp1) temp1 = temp1->next ;
+            if(temp2) temp2 = temp2->next ;
+        }
+        return dummyHead->next ;
     }
 };
