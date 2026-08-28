@@ -1,6 +1,6 @@
 class Solution {
 public:
-    void findcombinationSum2(int ind, vector<int>& candidates, int target, vector<vector<int>> &ans, vector<int> &ds){
+    void findcombinationSum2(int ind, vector<int>& candidates, int target, vector<vector<int>> &ans, vector<int> &ds){ 
         if(target == 0){
             ans.push_back(ds) ;
             return ;
@@ -18,6 +18,9 @@ public:
     }
 
     vector<vector<int>> combinationSum2(vector<int>& candidates, int target) {
+        // we shouldn't have to do (i == n) for duplicates
+        // there is no Not-Picking line of code
+        // sorting is Mandatory before 1st call for duplicates prob
         sort(candidates.begin(), candidates.end()) ;
         vector<vector<int>> ans ;
         vector<int> ds ;
