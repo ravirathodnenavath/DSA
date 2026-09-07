@@ -1,14 +1,14 @@
 class Solution {
 private:
-    void dfs(int Node, vector<vector<int>>& adjList, vector<int>& Vis) {
+    void dfs(int Node, vector<vector<int>>& adjList, vector<int>& Visited) {
 
         // Mark current node as visited
-        Vis[Node] = 1;
+        Visited[Node] = 1;
 
         // Visit all neighbours of Node
-        for (auto it : adjList[Node]) {
-            if (!Vis[it]) {
-                dfs(it, adjList, Vis);
+        for (auto neighbor : adjList[Node]) {
+            if (!Visited[neighbor]) {
+                dfs(neighbor, adjList, Visited);
             }
         }
     }
@@ -20,7 +20,7 @@ public:
         int V = isConnected.size();
 
         // Visited array
-        vector<int> Vis(V, 0);
+        vector<int> Visited(V, 0);
 
         // Adjacency List
         vector<vector<int>> adjList(V);
@@ -38,9 +38,9 @@ public:
         int cnt = 0;
 
         for (int i = 0; i < V; i++) {
-            if (!Vis[i]) {
+            if (!Visited[i]) {
                 cnt++;
-                dfs(i, adjList, Vis);
+                dfs(i, adjList, Visited);
             }
         }
         return cnt;
