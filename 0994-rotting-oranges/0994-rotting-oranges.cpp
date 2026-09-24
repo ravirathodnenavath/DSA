@@ -1,69 +1,58 @@
 class Solution {
 public:
+    // Function to find minimum minutes using multi-source BFS.
     int orangesRotting(vector<vector<int>>& grid) {
-
-        int n = grid.size();
-        int m = grid[0].size();
-
-        // Multi-source BFS: all initially rotten oranges start at time 0
-        queue<pair<pair<int, int>, int>> q;
-
+        int rows = grid.size();
+        int cols = grid[0].size();
         int fresh = 0;
+        int minutes = 0;
+        queue<pair<int, int>> q;
 
-        for (int i = 0; i < n; i++) {
-            for (int j = 0; j < m; j++) {
-
-                if (grid[i][j] == 2) {
-                    q.push({{i, j}, 0});
-                }
-
-                if (grid[i][j] == 1) {
+        // Collect all rotten oranges as BFS sources.
+        for (int row = 0; row < rows; row++) {
+            for (int col = 0; col < cols; col++) {
+                if (grid[row][col] == 2) {
+                    q.push({row, col});
+                } else if (grid[row][col] == 1) {
                     fresh++;
                 }
             }
         }
 
-        int time = 0;
-        int rotten = 0;
+        vector<int> dRow = {-1, 1, 0, 0};
+        vector<int> dCol = {0, 0, -1, 1};
 
-        // Directions: up, right, down, left
-        int delr[] = {-1, 0, 1, 0};
-        int delc[] = {0, 1, 0, -1};
+        // Process BFS level by level while fresh oranges remain.
+        while (!q.empty() && fresh > 0) {
+            int levelSize = q.size();
 
-        while (!q.empty()) {
+            // Process all oranges rotting during current minute.
+            for (int count = 0; count < levelSize; count++) {
+                auto [row, col] = q.front();
+                q.pop();
 
-            int r = q.front().first.first;
-            int c = q.front().first.second;
-            int t = q.front().second;
+                // Spread rot to adjacent fresh oranges.
+                for (int dir = 0; dir < 4; dir++) {
+                    int nextRow = row + dRow[dir];
+                    int nextCol = col + dCol[dir];
 
-            q.pop();
-
-            time = max(time, t);
-
-            for (int i = 0; i < 4; i++) {
-
-                int nrow = r + delr[i];
-                int ncol = c + delc[i];
-
-                if (nrow >= 0 && nrow < n &&
-                    ncol >= 0 && ncol < m &&
-                    grid[nrow][ncol] == 1) {
-
-                    // Mark immediately to prevent visiting the same orange again
-                    grid[nrow][ncol] = 2;
-
-                    q.push({{nrow, ncol}, t + 1});
-
-                    rotten++;
+                    if (nextRow >= 0 && nextCol >= 0 && nextRow < rows && nextCol < cols && grid[nextRow][nextCol] == 1) {
+                        grid[nextRow][nextCol] = 2;
+                        fresh--;
+                        q.push({nextRow, nextCol});
+                    }
                 }
             }
+
+            minutes++;
         }
 
-        // Some fresh oranges could not be reached
-        if (fresh != rotten) {
+        // Return -1 when unreachable fresh oranges remain.
+        if (fresh > 0) {
             return -1;
         }
 
-        return time;
+        // Return minimum elapsed minutes.
+        return minutes;
     }
-};
+};        
