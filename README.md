@@ -17,6 +17,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [0046-permutations](https://github.com/ravirathodnenavath/DSA/tree/master/0046-permutations) |
 | [0090-subsets-ii](https://github.com/ravirathodnenavath/DSA/tree/master/0090-subsets-ii) |
 | [0200-number-of-islands](https://github.com/ravirathodnenavath/DSA/tree/master/0200-number-of-islands) |
+| [0542-01-matrix](https://github.com/ravirathodnenavath/DSA/tree/master/0542-01-matrix) |
 | [0733-flood-fill](https://github.com/ravirathodnenavath/DSA/tree/master/0733-flood-fill) |
 | [0994-rotting-oranges](https://github.com/ravirathodnenavath/DSA/tree/master/0994-rotting-oranges) |
 | [1020-number-of-enclaves](https://github.com/ravirathodnenavath/DSA/tree/master/1020-number-of-enclaves) |
@@ -42,6 +43,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 |  |
 | ------- |
 | [0200-number-of-islands](https://github.com/ravirathodnenavath/DSA/tree/master/0200-number-of-islands) |
+| [0542-01-matrix](https://github.com/ravirathodnenavath/DSA/tree/master/0542-01-matrix) |
 | [0547-number-of-provinces](https://github.com/ravirathodnenavath/DSA/tree/master/0547-number-of-provinces) |
 | [0733-flood-fill](https://github.com/ravirathodnenavath/DSA/tree/master/0733-flood-fill) |
 | [0994-rotting-oranges](https://github.com/ravirathodnenavath/DSA/tree/master/0994-rotting-oranges) |
@@ -60,7 +62,12 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 |  |
 | ------- |
 | [0200-number-of-islands](https://github.com/ravirathodnenavath/DSA/tree/master/0200-number-of-islands) |
+| [0542-01-matrix](https://github.com/ravirathodnenavath/DSA/tree/master/0542-01-matrix) |
 | [0733-flood-fill](https://github.com/ravirathodnenavath/DSA/tree/master/0733-flood-fill) |
 | [0994-rotting-oranges](https://github.com/ravirathodnenavath/DSA/tree/master/0994-rotting-oranges) |
 | [1020-number-of-enclaves](https://github.com/ravirathodnenavath/DSA/tree/master/1020-number-of-enclaves) |
+## Dynamic Programming
+|  |
+| ------- |
+| [0542-01-matrix](https://github.com/ravirathodnenavath/DSA/tree/master/0542-01-matrix) |
 <!---LeetCode Topics End-->
