@@ -1,47 +1,44 @@
 class Solution {
-public:
-    vector<vector<int>> floodFill(vector<vector<int>>& image, int sr, int sc, int color) {
-        int rows = image.size();
-        int cols = image[0].size();
-        int oldColor = image[sr][sc];
- 
-        // If the new color is the same, no change is needed.
-        if (oldColor == color) {
-            return image;
-        }
- 
-        vector<int> deltaRow = {-1, 1, 0, 0};
-        vector<int> deltaCol = {0, 0, -1, 1};
-        queue<pair<int, int>> q;
- 
-        // Recolor the starting cell.
-        image[sr][sc] = color;
- 
-        // Push the starting cell into the queue.
-        q.push({sr, sc});
- 
-        // Recolor all connected cells having the original color.
-        while (!q.empty()) {
-            pair<int, int> cell = q.front();
-            q.pop();
- 
-            // Explore all four adjacent directions.
-            for (int dir = 0; dir < 4; dir++) {
-                int nextRow = cell.first + deltaRow[dir];
-                int nextCol = cell.second + deltaCol[dir];
- 
-                // Check if the next cell is inside the image.
-                if (nextRow >= 0 && nextRow < rows && nextCol >= 0 && nextCol < cols) {
-                    // Recolor only cells that have the old color.
-                    if (image[nextRow][nextCol] == oldColor) {
-                        image[nextRow][nextCol] = color;
-                        q.push({nextRow, nextCol});
-                    }
-                }
+private:
+    void dfs(int row, int col, vector<vector<int>>& image,
+             int originalColor, int color) {
+
+        int n = image.size();
+        int m = image[0].size();
+
+        // Change current pixel
+        image[row][col] = color;
+
+        int delRow[] = {-1, 0, 1, 0};
+        int delCol[] = {0, 1, 0, -1};
+
+        // Visit 4 neighbours
+        for (int i = 0; i < 4; i++) {
+
+            int nrow = row + delRow[i];
+            int ncol = col + delCol[i];
+
+            if (nrow >= 0 && nrow < n &&
+                ncol >= 0 && ncol < m &&
+                image[nrow][ncol] == originalColor) {
+
+                dfs(nrow, ncol, image, originalColor, color);
             }
         }
- 
-        // Return the updated image.
+    }
+
+public:
+    vector<vector<int>> floodFill(vector<vector<int>>& image,
+                                   int sr, int sc, int color) {
+
+        int originalColor = image[sr][sc];
+
+        // If both colors are same, nothing needs to be changed
+        if (originalColor == color)
+            return image;
+
+        dfs(sr, sc, image, originalColor, color);
+
         return image;
     }
 };
