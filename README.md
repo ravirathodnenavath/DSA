@@ -16,6 +16,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [0040-combination-sum-ii](https://github.com/ravirathodnenavath/DSA/tree/master/0040-combination-sum-ii) |
 | [0046-permutations](https://github.com/ravirathodnenavath/DSA/tree/master/0046-permutations) |
 | [0090-subsets-ii](https://github.com/ravirathodnenavath/DSA/tree/master/0090-subsets-ii) |
+| [0130-surrounded-regions](https://github.com/ravirathodnenavath/DSA/tree/master/0130-surrounded-regions) |
 | [0200-number-of-islands](https://github.com/ravirathodnenavath/DSA/tree/master/0200-number-of-islands) |
 | [0542-01-matrix](https://github.com/ravirathodnenavath/DSA/tree/master/0542-01-matrix) |
 | [0733-flood-fill](https://github.com/ravirathodnenavath/DSA/tree/master/0733-flood-fill) |
@@ -35,6 +36,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 ## Depth-First Search
 |  |
 | ------- |
+| [0130-surrounded-regions](https://github.com/ravirathodnenavath/DSA/tree/master/0130-surrounded-regions) |
 | [0200-number-of-islands](https://github.com/ravirathodnenavath/DSA/tree/master/0200-number-of-islands) |
 | [0547-number-of-provinces](https://github.com/ravirathodnenavath/DSA/tree/master/0547-number-of-provinces) |
 | [0733-flood-fill](https://github.com/ravirathodnenavath/DSA/tree/master/0733-flood-fill) |
@@ -42,6 +44,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 ## Breadth-First Search
 |  |
 | ------- |
+| [0130-surrounded-regions](https://github.com/ravirathodnenavath/DSA/tree/master/0130-surrounded-regions) |
 | [0200-number-of-islands](https://github.com/ravirathodnenavath/DSA/tree/master/0200-number-of-islands) |
 | [0542-01-matrix](https://github.com/ravirathodnenavath/DSA/tree/master/0542-01-matrix) |
 | [0547-number-of-provinces](https://github.com/ravirathodnenavath/DSA/tree/master/0547-number-of-provinces) |
@@ -51,6 +54,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 ## Union-Find
 |  |
 | ------- |
+| [0130-surrounded-regions](https://github.com/ravirathodnenavath/DSA/tree/master/0130-surrounded-regions) |
 | [0200-number-of-islands](https://github.com/ravirathodnenavath/DSA/tree/master/0200-number-of-islands) |
 | [0547-number-of-provinces](https://github.com/ravirathodnenavath/DSA/tree/master/0547-number-of-provinces) |
 | [1020-number-of-enclaves](https://github.com/ravirathodnenavath/DSA/tree/master/1020-number-of-enclaves) |
@@ -61,6 +65,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 ## Matrix
 |  |
 | ------- |
+| [0130-surrounded-regions](https://github.com/ravirathodnenavath/DSA/tree/master/0130-surrounded-regions) |
 | [0200-number-of-islands](https://github.com/ravirathodnenavath/DSA/tree/master/0200-number-of-islands) |
 | [0542-01-matrix](https://github.com/ravirathodnenavath/DSA/tree/master/0542-01-matrix) |
 | [0733-flood-fill](https://github.com/ravirathodnenavath/DSA/tree/master/0733-flood-fill) |
