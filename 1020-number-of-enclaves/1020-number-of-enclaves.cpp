@@ -1,67 +1,79 @@
 class Solution {
 public:
     int numEnclaves(vector<vector<int>>& grid) {
-        int rows = grid.size();
-        int cols = grid[0].size();
- 
-        queue<pair<int, int>> q;
- 
-        vector<int> deltaRow = {-1, 1, 0, 0};
-        vector<int> deltaCol = {0, 0, -1, 1};
- 
-        // Add land cells from the left and right boundaries.
-        for (int row = 0; row < rows; row++) {
-            for (int col : {0, cols - 1}) {
-                // If boundary cell is land, mark and push it.
-                if (grid[row][col] == 1) {
-                    grid[row][col] = 0;
-                    q.push({row, col});
-                }
-            }
-        }
- 
-        // Add land cells from the top and bottom boundaries.
-        for (int col = 0; col < cols; col++) {
-            for (int row : {0, rows - 1}) {
-                // If boundary cell is land, mark and push it.
-                if (grid[row][col] == 1) {
-                    grid[row][col] = 0;
-                    q.push({row, col});
-                }
-            }
-        }
- 
-        // Remove all land connected to boundary land cells.
-        while (!q.empty()) {
-            pair<int, int> cell = q.front();
-            q.pop();
- 
-            // Explore all four adjacent directions.
-            for (int dir = 0; dir < 4; dir++) {
-                int nextRow = cell.first + deltaRow[dir];
-                int nextCol = cell.second + deltaCol[dir];
- 
-                // Check if the next cell is inside the grid.
-                if (nextRow >= 0 && nextCol >= 0 && nextRow < rows && nextCol < cols) {
-                    // If connected cell is land, mark and push it.
-                    if (grid[nextRow][nextCol] == 1) {
-                        grid[nextRow][nextCol] = 0;
-                        q.push({nextRow, nextCol});
-                    }
-                }
-            }
-        }
- 
+
+        int n = grid.size();
+        int m = grid[0].size();
+
         int enclaves = 0;
- 
-        // Count the remaining land cells.
-        for (int row = 0; row < rows; row++) {
-            for (int col = 0; col < cols; col++) {
-                enclaves += grid[row][col];
+
+        queue<pair<int, int>> q;
+
+        // Put all boundary land cells into the queue
+        for (int i = 0; i < n; i++) {
+
+            if (grid[i][0] == 1) {
+                grid[i][0] = 2;
+                q.push({i, 0});
+            }
+
+            if (grid[i][m - 1] == 1) {
+                grid[i][m - 1] = 2;
+                q.push({i, m - 1});
             }
         }
- 
-        // Return the number of enclave cells.
+
+        for (int i = 0; i < m; i++) {
+
+            if (grid[0][i] == 1) {
+                grid[0][i] = 2;
+                q.push({0, i});
+            }
+
+            if (grid[n - 1][i] == 1) {
+                grid[n - 1][i] = 2;
+                q.push({n - 1, i});
+            }
+        }
+
+        int delRow[] = {-1, 0, 1, 0};
+        int delCol[] = {0, 1, 0, -1};
+
+        while (!q.empty()) {
+
+            int row = q.front().first;
+            int col = q.front().second;
+            q.pop();
+
+            for (int i = 0; i < 4; i++) {
+
+                int nextrow = row + delRow[i];
+                int nextcol = col + delCol[i];
+
+                // Check valid cell and boundary-connected land
+                if (nextrow >= 0 && nextrow < n &&
+                    nextcol >= 0 && nextcol < m &&
+                    grid[nextrow][nextcol] == 1) {
+
+                    grid[nextrow][nextcol] = 2;
+                    q.push({nextrow, nextcol});
+                }
+            }
+        }
+
+        // Remaining 1's are enclaves
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < m; j++) {
+
+                if (grid[i][j] == 1) {
+                    enclaves++;
+                }
+                else if (grid[i][j] == 2) {
+                    grid[i][j] = 1;
+                }
+            }
+        }
+
         return enclaves;
     }
 };
