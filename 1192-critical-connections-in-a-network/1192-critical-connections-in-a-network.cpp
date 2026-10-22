@@ -24,6 +24,7 @@ private:
             // if already visited, it's in the path only, So no bridge
             else{
                 low[node] = min(low[it], low[node]) ;
+                // low[node] = min(tin[it], low[node]);
             }
         }
     } 
